@@ -15,12 +15,26 @@
         <button onclick = "add()">=</button>
         <label id = "sum"></label>
     </section>
+    <!-- 
     <script>
         function add() {
             let operand1Input = document.getElementById("operand1");
             let operand2Input = document.getElementById("operand2");
             let sum = Number(operand1Input.value) + Number(operand2Input.value);
             document.getElementById("sum").innerText = sum;
+        }
+    </script>
+    -->
+    <script>
+        function add() {
+            let operand1Input = document.getElementById("operand1");
+            let operand2Input = document.getElementById("operand2");
+            fetch(`http://localhost:3000/add?num1=${operand1Input.value}&num2=${operand2Input.value}`)
+                .then(response => response.text())
+                .then(text => {
+                    const sum = parseFloat(text);
+                    document.getElementById("sum").innerText = sum;
+            });
         }
     </script>
 </body>
