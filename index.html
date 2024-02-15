@@ -8,11 +8,35 @@
 
 <body>
     <section>
-        <h2>Arithmetic</h2>
+        <h2>Addition</h2>
         <input id = "operand1"/>
         <label>+</label>
         <input id = "operand2"/>
         <button onclick = "add()">=</button>
+        <label id = "sum"></label>
+    </section>
+    <section>
+        <h2>Subtraction</h2>
+        <input id = "operand1"/>
+        <label>-</label>
+        <input id = "operand2"/>
+        <button onclick = "subtract()">=</button>
+        <label id = "sum"></label>
+    </section>
+    <section>
+        <h2>Multiplication</h2>
+        <input id = "operand1"/>
+        <label>*</label>
+        <input id = "operand2"/>
+        <button onclick = "multiply()">=</button>
+        <label id = "sum"></label>
+    </section>
+    <section>
+        <h2>Division</h2>
+        <input id = "operand1"/>
+        <label>/</label>
+        <input id = "operand2"/>
+        <button onclick = "divide()">=</button>
         <label id = "sum"></label>
     </section>
     <!-- 
@@ -34,6 +58,36 @@
                 .then(text => {
                     const sum = parseFloat(text);
                     document.getElementById("sum").innerText = sum;
+            });
+        }
+        function subtract() {
+            let operand1Input = document.getElementById("operand1");
+            let operand2Input = document.getElementById("operand2");
+            fetch(`https://arithmetic-service-ajbognar.onrender.com/subtract?num1=${operand1Input.value}&num2=${operand2Input.value}`)
+                .then(response => response.text())
+                .then(text => {
+                    const result = parseFloat(text);
+                    document.getElementById("result").innerText = result;
+            });
+        }
+        function multiply() {
+            let operand1Input = document.getElementById("operand1");
+            let operand2Input = document.getElementById("operand2");
+            fetch(`https://arithmetic-service-ajbognar.onrender.com/multiply?num1=${operand1Input.value}&num2=${operand2Input.value}`)
+                .then(response => response.text())
+                .then(text => {
+                    const result = parseFloat(text);
+                    document.getElementById("result").innerText = result;
+            });
+        }
+        function divide() {
+            let operand1Input = document.getElementById("operand1");
+            let operand2Input = document.getElementById("operand2");
+            fetch(`https://arithmetic-service-ajbognar.onrender.com/divide?num1=${operand1Input.value}&num2=${operand2Input.value}`)
+                .then(response => response.text())
+                .then(text => {
+                    const result = parseFloat(text);
+                    document.getElementById("result").innerText = result;
             });
         }
     </script>
