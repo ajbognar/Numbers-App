@@ -21,7 +21,7 @@
         <label>-</label>
         <input id = "operand4"/>
         <button onclick = "subtract()">=</button>
-        <label id = "sum"></label>
+        <label id = "result1"></label>
     </section>
     <section>
         <h2>Multiplication</h2>
@@ -29,7 +29,7 @@
         <label>*</label>
         <input id = "operand6"/>
         <button onclick = "multiply()">=</button>
-        <label id = "sum"></label>
+        <label id = "result2"></label>
     </section>
     <section>
         <h2>Division</h2>
@@ -37,7 +37,7 @@
         <label>/</label>
         <input id = "operand8"/>
         <button onclick = "divide()">=</button>
-        <label id = "sum"></label>
+        <label id = "result3"></label>
     </section>
     <!-- 
     <script>
@@ -66,8 +66,8 @@
             fetch(`https://arithmetic-service-ajbognar.onrender.com/subtract?num1=${operand3Input.value}&num2=${operand4Input.value}`)
                 .then(response => response.text())
                 .then(text => {
-                    const result = parseFloat(text);
-                    document.getElementById("result").innerText = result;
+                    const result1 = parseFloat(text);
+                    document.getElementById("result1").innerText = result1;
             });
         }
         function multiply() {
@@ -76,8 +76,8 @@
             fetch(`https://arithmetic-service-ajbognar.onrender.com/multiply?num1=${operand5Input.value}&num2=${operand6Input.value}`)
                 .then(response => response.text())
                 .then(text => {
-                    const result = parseFloat(text);
-                    document.getElementById("result").innerText = result;
+                    const result2 = parseFloat(text);
+                    document.getElementById("result2").innerText = result2;
             });
         }
         function divide() {
@@ -86,8 +86,8 @@
             fetch(`https://arithmetic-service-ajbognar.onrender.com/divide?num1=${operand7Input.value}&num2=${operand8Input.value}`)
                 .then(response => response.text())
                 .then(text => {
-                    const result = parseFloat(text);
-                    document.getElementById("result").innerText = result;
+                    const result3 = parseFloat(text);
+                    document.getElementById("result3").innerText = result3;
             });
         }
     </script>
