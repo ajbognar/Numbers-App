@@ -4,41 +4,69 @@
     <meta charset = "UTF-8">
     <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
     <title>Document</title>
+    <style>
+        .column {
+           float: left;
+           width: 50%;
+           padding: 10px;
+           box-sizing: border-box;
+          
+        }
+        .row::after {
+           content: "";
+           clear: both;
+           display: table;
+        }
+     </style>
 </head>
 
 <body>
-    <section>
-        <h2>Addition</h2>
-        <input id = "operand1"/>
-        <label>+</label>
-        <input id = "operand2"/>
-        <button onclick = "add()">=</button>
-        <label id = "sum"></label>
-    </section>
-    <section>
-        <h2>Subtraction</h2>
-        <input id = "operand3"/>
-        <label>-</label>
-        <input id = "operand4"/>
-        <button onclick = "subtract()">=</button>
-        <label id = "result1"></label>
-    </section>
-    <section>
-        <h2>Multiplication</h2>
-        <input id = "operand5"/>
-        <label>*</label>
-        <input id = "operand6"/>
-        <button onclick = "multiply()">=</button>
-        <label id = "result2"></label>
-    </section>
-    <section>
-        <h2>Division</h2>
-        <input id = "operand7"/>
-        <label>/</label>
-        <input id = "operand8"/>
-        <button onclick = "divide()">=</button>
-        <label id = "result3"></label>
-    </section>
+    <div class="row">
+        <div class="column">
+            <section>
+                <h2>Addition</h2>
+                <input id = "operand1"/>
+                <label>+</label>
+                <input id = "operand2"/>
+                <button onclick = "add()">=</button>
+                <label id = "sum"></label>
+            </section>
+            <section>
+                <h2>Subtraction</h2>
+                <input id = "operand3"/>
+                <label>-</label>
+                <input id = "operand4"/>
+                <button onclick = "subtract()">=</button>
+                <label id = "result1"></label>
+            </section>
+            <section>
+                <h2>Multiplication</h2>
+                <input id = "operand5"/>
+                <label>*</label>
+                <input id = "operand6"/>
+                <button onclick = "multiply()">=</button>
+                <label id = "result2"></label>
+            </section>
+            <section>
+                <h2>Division</h2>
+                <input id = "operand7"/>
+                <label>/</label>
+                <input id = "operand8"/>
+                <button onclick = "divide()">=</button>
+                <label id = "result3"></label>
+            </section>
+        </div>
+        <div class="column">
+            <section>
+                <h2>Prime check</h2>                
+                <label>Number to test:</label>
+                <input id="numberToTest"/>
+                <button onclick="isPrime()">Check</button>
+                <label id="primeCheckResult"></label>  
+            </section>           
+        </div> 
+    </div>
+    
     <!-- 
     <script>
         function add() {
@@ -89,6 +117,13 @@
                     const result3 = parseFloat(text);
                     document.getElementById("result3").innerText = result3;
             });
+        }
+        async function isPrime() {
+            const numberToTest = document.getElementById("numberToTest");            
+            let n = numberToTest.value;            
+            const response = await fetch("???" + n);
+            const result = await response.json();
+            document.getElementById("primeCheckResult").innerText = result;
         }
     </script>
 </body>
