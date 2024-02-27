@@ -65,6 +65,15 @@
                 <label id="primeCheckResult"></label>  
             </section>           
         </div> 
+        <div class="column">
+            <section>
+                <h2>Caesar Cipher</h2>                
+                <label>Text:</label>
+                <input id="textToTest"/>
+                <button onclick="isPrime()">Cipher</button>
+                <label id="cipherResult"></label>  
+            </section>           
+        </div> 
     </div>
     
     <!-- 
@@ -121,9 +130,16 @@
         async function isPrime() {
             const numberToTest = document.getElementById("numberToTest");            
             let n = numberToTest.value;            
-            const response = await fetch("???" + n);
+            const response = await fetch("http://localhost:8080/primes/" + n);
             const result = await response.json();
             document.getElementById("primeCheckResult").innerText = result;
+        }
+        async function cipher() {
+            const textToTest = document.getElementById("textToTest");            
+            let n = textToTest.value;            
+            const response = await fetch("???" + n);
+            const result = await response.json();
+            document.getElementById("cipherResult").innerText = result;
         }
     </script>
 </body>
